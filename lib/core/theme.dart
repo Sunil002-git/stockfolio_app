@@ -26,7 +26,7 @@ class AppColors {
 // The single function that creates the entire app theme.
 // Call it once in main.dart - MaterialApp(theme: AppTheme.dark())
 
-class Apptheme {
+class AppTheme {
   static ThemeData dark() {
     return ThemeData(
       brightness: Brightness.dark,
