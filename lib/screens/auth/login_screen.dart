@@ -92,6 +92,8 @@ Future<void> _handleLogin() async {
     try {
       // context.read() gets the ApiService without watching for changes.
       // Use read() in callbacks/async functions, watch() in build().
+      // current widget location in widget tree
+      // read<ApiService>() : "Read provider value of type ApiService"
       final api = context.read<ApiService>();
  
       // POST /api/login/ with username and password
@@ -109,6 +111,7 @@ Future<void> _handleLogin() async {
 // login() saves to SharedPreferences and calls notifyListeners()
       // GoRouter redirect fires → isLoggedIn = true → /dashboard
       if (mounted) {
+        // mounted: "Is this widget still alive in widget tree?"
         await context.read<AuthProvider>().login(data);
         // Navigation happens automatically via GoRouter redirect.
         // You do NOT need to call context.go("/dashboard") here.

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../services/storage_service.dart';
 
 class AuthProvider extends ChangeNotifier {
+  // chnagenotifier "I can notify UI when state changes"
   String? _accessToken;
   String? _refreshToken;
   bool _isSuperuser = false;
@@ -42,6 +43,7 @@ class AuthProvider extends ChangeNotifier {
       isSuperuser: _isSuperuser,
     );
     notifyListeners();
+    // ALL listening widgets rebuild automatically
   }
 
   // ── Called by Dio interceptor after silent token refresh ──────

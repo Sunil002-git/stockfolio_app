@@ -1,3 +1,4 @@
+// ALL backend communication goes through this file
 import 'package:dio/dio.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,7 @@ class ApiService {
       ),
     );
     _setupInterceptors();
+    // "Run code before/after every request"
   }
 
   void _setupInterceptors() {
@@ -29,6 +31,7 @@ class ApiService {
             options.headers["Authorization"] = "Bearer $token";
           }
           return handler.next(options);
+          // "Continue request normally" Without this: request stops completely
         },
         // Response interceptor
         // Runs after EVERY API response.
@@ -66,10 +69,12 @@ class ApiService {
               debugPrint("[ApiService] Token refreshed successfully.");
 
               // Retry the original request with new token
+              // opts: original request configuration
               final opts = error.requestOptions;
               opts.headers["Authorization"] = "Bearer $newToken";
               final retryRes = await _dio.fetch(opts);
               return handler.resolve(retryRes);
+              //  handler.resolve(retryRes) means Treat retry request as successful final response
             } catch (e) {
               debugPrint("[ApiService] Refresh failed. Logging out.");
               await _auth.logout();
@@ -93,3 +98,5 @@ class ApiService {
   Future<Response<T>> delete<T>(String path) => 
   _dio.delete<T>(path);
 }
+
+// Central API Manager
