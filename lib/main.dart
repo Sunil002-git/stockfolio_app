@@ -9,7 +9,7 @@ import 'screens/auth/login_screen.dart';
 import 'screens/auth/register_screen.dart';
 import 'screens/auth/forgot_password_screen.dart';
 import 'screens/dashboard/dashboard_screen.dart';
-
+import '../providers/broker_provider.dart';
 // ── Entry point ─────────────────────────────────────────────────
 // WidgetsFlutterBinding.ensureInitialized() is required when you do
 // async work before runApp() — like reading SharedPreferences.
@@ -50,7 +50,7 @@ class _StockfolioAppState extends State<StockfolioApp> {
         // ChangeNotifierProvider wraps the existing _auth instance.
         // Use .value when the provider is created outside the tree.
         ChangeNotifierProvider<AuthProvider>.value(value: _auth),
-
+        ChangeNotifierProvider(create: (_) => BrokerProvider()),
         // ProxyProvider creates ApiService and injects AuthProvider.
         // It recreates ApiService whenever AuthProvider changes.
         ProxyProvider<AuthProvider, ApiService>(
