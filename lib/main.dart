@@ -8,7 +8,8 @@ import 'providers/auth_provider.dart';
 import 'screens/auth/login_screen.dart';
 import 'screens/auth/register_screen.dart';
 import 'screens/auth/forgot_password_screen.dart';
-import 'screens/dashboard/dashboard_screen.dart';
+// import 'screens/dashboard/dashboard_screen.dart';
+import 'screens/app_shell.dart';
 import '../providers/broker_provider.dart';
 // ── Entry point ─────────────────────────────────────────────────
 // WidgetsFlutterBinding.ensureInitialized() is required when you do
@@ -107,7 +108,7 @@ class _StockfolioAppState extends State<StockfolioApp> {
               ),
               GoRoute(
                 path: '/dashboard',
-                builder: (_, __) => const DashboardScreen(),
+                  builder: (_, __) => const AppShell(), // WAS: DashboardScreen()
               ),
               // TODO Sprint 3+: add /positions, /trades, /history etc.
             ],
