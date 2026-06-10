@@ -271,7 +271,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   .where((e) =>
                     (e.value['count'] as int? ?? 0) > 0)
                   .map((e) => _SegmentTile(
-                    key:   e.key,
+                    segmentKey: e.key,
                     data:  e.value as Map<String, dynamic>,
                   ))
                   .toList(),
@@ -389,10 +389,10 @@ class _CountTile extends StatelessWidget {
  
 // Segment tile (Equity, Futures, CE, PE, MF)
 class _SegmentTile extends StatelessWidget {
-  final String             key;
+  final String             segmentKey;
   final Map<String,dynamic> data;
-  const _SegmentTile({required String key, required this.data})
-    : super(key: ValueKey(key));
+  _SegmentTile({required this.segmentKey, required this.data})
+    : super(key: ValueKey(segmentKey));
   @override
   Widget build(BuildContext context) {
     final label  = data['label']       as String? ?? '?';

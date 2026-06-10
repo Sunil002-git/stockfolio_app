@@ -5,7 +5,7 @@ import '../core/api_service.dart';
 import '../providers/auth_provider.dart';
 import '../providers/broker_provider.dart';
 import 'dashboard/dashboard_screen.dart';
- 
+import 'positions/positions_screen.dart';
 // Placeholder screens for tabs not yet built.
 // Replace these one by one in future sprints.
 import 'placeholder_screen.dart';
@@ -59,6 +59,7 @@ class _AppShellState extends State<AppShell> {
     // Replace PlaceholderScreen with real screens in future sprints.
     final screens = [
       const DashboardScreen(),
+      const PositionsScreen(),
       const PlaceholderScreen(title: 'Positions',  icon: Icons.layers_outlined),
       const PlaceholderScreen(title: 'Funds',      icon: Icons.account_balance_outlined),
       const PlaceholderScreen(title: 'History',    icon: Icons.history_outlined),

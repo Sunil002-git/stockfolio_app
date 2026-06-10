@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import '../core/theme.dart';
 
 class AuthTextField extends StatelessWidget {
   final String label;

@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:stockfolio_app/core/api_service.dart';
 import '../../widgets/auth_text_field.dart';
 import '../../core/theme.dart';
 import 'package:provider/provider.dart';

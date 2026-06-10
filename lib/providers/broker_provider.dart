@@ -4,14 +4,14 @@ class Broker {
   final int id;
   final String name;
   final String? accountId;
-  final bool isActivate;
+  final bool isActive;
   final int tradeCount;
 
   const Broker({
     required this.id,
     required this.name,
     this.accountId,
-    required this.isActivate,
+    required this.isActive,
     required this.tradeCount,
   });
 
@@ -19,8 +19,8 @@ class Broker {
     id: j['id'] as int,
     name: j['name'] as String,
     accountId: j['account_id'] as String?,
-    isActivate: j['is_active'] as bool,
-    tradeCount: j['trade_account'] as int,
+    isActive: j['is_active'] as bool,
+    tradeCount: j['trade_count'] as int,
   );
 }
 
@@ -34,12 +34,12 @@ class BrokerProvider extends ChangeNotifier {
   int? _activeBrokerId; // null = All Brokers
 
   List<Broker> get brokers => _brokers;
-  int? get activateBrokerId => _activeBrokerId;
+  int? get activeBrokerId => _activeBrokerId;
 
   // brokerParam — the string to append as ?broker= in API calls.
   // null means no filter (all brokers).
   // Equivalent to brokerParam in BrokerContext.js.
-  String? get brokerParaam =>
+  String? get brokerParam =>
       _activeBrokerId != null ? _activeBrokerId.toString() : null;
   // The display name for the currently selected broker.
   // Used in screen subtitles: "Dashboard — Zerodha"
