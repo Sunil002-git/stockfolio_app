@@ -11,6 +11,7 @@ import 'screens/auth/forgot_password_screen.dart';
 // import 'screens/dashboard/dashboard_screen.dart';
 import 'screens/app_shell.dart';
 import 'providers/broker_provider.dart';
+import 'screens/predict/predict_screen.dart';
 // ── Entry point ─────────────────────────────────────────────────
 // WidgetsFlutterBinding.ensureInitialized() is required when you do
 // async work before runApp() — like reading SharedPreferences.
@@ -97,6 +98,10 @@ class _StockfolioAppState extends State<StockfolioApp> {
             refreshListenable: auth,
 
             routes: [
+              GoRoute(
+                path: '/predict',
+                builder: (_, __) => const PredictScreen(),
+              ),
               GoRoute(path: '/login', builder: (_, __) => const LoginScreen()),
               GoRoute(
                 path: '/register',
